@@ -13,6 +13,10 @@ const thoughtSchema = new Schema({
         default: Date.now,
         get: (timestamp) => timestamp.toLocalString(),
     },
+    userId: {
+        type: Schema.Types.ObjectId, 
+        required: true
+    },
     username: {
         type: String,
         required: true, 

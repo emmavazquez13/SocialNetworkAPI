@@ -1,12 +1,12 @@
 const { User, Thought } = require("../models/index");
 
 module.exports = {
-  getallusers(req, res) {
+  getAllUsers(req, res) {
     User.find()
       .then((users) => res.json(users))
       .catch((error) => res.status(500).json(error));
   },
-  getuserbyID(req, res) {
+  getUserbyID(req, res) {
     User.findOne({ _id: req.params.id })
       .select("-__v")
       .then((user) => {
@@ -16,12 +16,12 @@ module.exports = {
       })
       .catch((error) => res.status(500).json(error));
   },
-  createuser(req, res) {
+  createUser(req, res) {
     User.create(req.body)
       .then((user) => res.json(user))
       .catch((error) => res.status(500).json(error));
   },
-  updateuser(req, res) {
+  updateUser(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.id },
       { $set: req.body },
@@ -34,7 +34,7 @@ module.exports = {
       })
       .catch((error) => res.status(500).json(error));
   },
-  deleteuser(req, res) {
+  deleteUser(req, res) {
     User.findOneAndDelete({ _id: req.params.id })
       .then((user) =>
         !user

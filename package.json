@@ -7,9 +7,10 @@
   "name": "socialnetworkapi",
   "description": "",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon server.js",
+    "seed": "node ./utils/seed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/emmavazquez13/SocialNetworkAPI/issues"
   },
-  "homepage": "https://github.com/emmavazquez13/SocialNetworkAPI#readme"
+  "homepage": "https://github.com/emmavazquez13/SocialNetworkAPI#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
 }

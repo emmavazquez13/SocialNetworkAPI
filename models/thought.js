@@ -10,8 +10,8 @@ const thoughtSchema = new Schema({
     },
     createdAt: {
         type: Date,
-        default: Date.now,
-        get: (timestamp) => timestamp.toLocalString(),
+        default: Date.now
+       // get: (timestamp) => timestamp.toLocalString(),
     },
     userId: {
         type: Schema.Types.ObjectId, 

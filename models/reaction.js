@@ -16,14 +16,14 @@ const reactionSchema = new Schema (
         },
         createdAt: {
             type: Date,
-            default: Date.now,
-            get: (timestamp) => timestamp.toLocalString(),
+            default: Date.now
+           // get: (timestamp) => timestamp.toLocalString(),
             
         },
         updateAt: {
             type: Date,
-            default: Date.now,
-            get: (timestamp) => timestamp.toLocalString(),
+            default: Date.now
+          //  get: (timestamp) => timestamp.toLocalString(),
             
         }
     },

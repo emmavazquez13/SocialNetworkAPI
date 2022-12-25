@@ -7,7 +7,7 @@ module.exports = {
       .catch((error) => res.status(500).json(error));
   },
   getUserbyID(req, res) {
-    User.findOne({ _id: req.params.id })
+    User.findOne({ _id: req.params.userID })
       .select("-__v")
       .then((user) => {
         return !user
@@ -23,7 +23,7 @@ module.exports = {
   },
   updateUser(req, res) {
     User.findOneAndUpdate(
-      { _id: req.params.id },
+      { _id: req.params.userID },
       { $set: req.body },
       { runValidators: true, new: true }
     )
@@ -35,11 +35,11 @@ module.exports = {
       .catch((error) => res.status(500).json(error));
   },
   deleteUser(req, res) {
-    User.findOneAndDelete({ _id: req.params.id })
+    User.findOneAndDelete({ _id: req.params.userID })
       .then((user) =>
         !user
           ? res.status(404).json({ message: "user not found" })
-          : Thought.deleteMany({ userId: req.params.id })
+          : Thought.deleteMany({ userId: req.params.userID })
       )
       .then((user) =>
         !user
